@@ -1,0 +1,293 @@
+body{
+    background: #EAE9E9;
+}
+
+
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 82px;
+    padding-left: 59px;
+    padding-right: 59px;
+    padding-bottom: 82px;
+}
+
+
+.bgwhite{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 210vh;
+    border-radius: 20px;
+    background: #FFF;
+    margin-bottom: 59px;
+}
+
+.centerboooking{
+    display: block;
+}
+
+
+.textbgwhite{
+    display: flex;
+    justify-content: center;
+    color: #000;
+    font-family: 'Noto Sans Thai', sans-serif;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.textbgwhite p{
+    display: block;
+    margin: 0px;
+}
+
+
+
+
+.rmone ,.rmtwo ,.rmthree{
+    margin-top: 105px;
+    display: block;
+    display: grid;
+    align-content: center;
+    grid-template-columns: auto  auto;
+    gap: 10px;
+   /* background-color: #abafb1; /*  แถบพื้นหลัง คอนเทนเนอ room   */
+    padding: 10px;
+}
+
+
+.ptroom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dataroom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.roomone{
+    display: block;
+    justify-content: center;
+    align-items: center;
+    width: 434px;
+    height: 331px;
+    border-radius: 10px;
+}
+
+.roomone img{
+    display: block;
+    width: 434px;
+    height: 331px;
+    border-radius: 10px;
+}
+
+.roomone p{
+    display: block;
+    color: #000;
+    text-align: center;
+    font-family: 'Noto Sans Thai', sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 300;
+    line-height: normal;
+}
+
+
+.dataone{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    width: 434px;
+    height: 331px;
+    border-radius: 10px;
+
+}
+
+.boxdata{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 324px;
+    height: 107px;
+    border-radius: 10px;
+    background: #00C543;
+}
+
+.boxdata p {
+    display: flex;
+    color: #FFF;
+    font-family: Noto Sans Thai UI;
+    font-size: 35px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.boxdataall{
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+
+.boxdatasmall{
+    display: inline-block;
+
+    width: 151px;
+
+    border-radius: 10px;
+    background: #FF3737;
+    margin-top: 52px;
+}
+
+.boxdatasmall p{
+    color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Noto Sans Thai', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.boxdatablacksmall{
+        display: inline-block;
+
+        width: 151px;
+
+        border-radius: 10px;
+        background: #5C5C5C;
+        margin-left: 22px;
+        text-decoration:none;
+
+    
+}
+
+.boxdatablacksmall p{
+    color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Noto Sans Thai', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    
+}
+
+
+.bgwhite img{
+    display: block;
+    margin-top: 93px;
+    width: 600px;
+    height: 435px;
+    border-radius: 10px;
+}
+
+.bgwhite p{
+    display: block;
+}
+
+.centerphoto{
+    display: block;   
+}
+
+.centerline{
+    display: flex;
+    justify-content: center;
+}
+
+.centertext{
+    display: flex;
+    justify-content: center;
+    font-family: 'Noto Sans Thai', sans-serif;
+    margin-top: 13px;
+    margin-bottom: 80px;
+}
+
+.label_center input{
+    margin-left: 25px;
+    margin-bottom: 50px;
+    width: 350px;
+    height: 30px;
+    border-radius: 3px;
+    border: 1px solid #A1A0A0;
+    background: #F5F5F5;
+}
+
+
+.label_center{
+    display: flex;
+    justify-content:flex-start;
+}
+
+.label_center label{
+    font-family: 'Noto Sans Thai', sans-serif;
+}
+
+.centerdiv{
+    display: block;
+    width: 500;
+    height: 810;
+}
+
+.centersubm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+label{
+    width: 350px;
+    height: 30px;   
+    display: flex;
+    align-items: center;
+}
+
+.summit_c{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 30px;
+}
+
+.summit_c input{
+    display: flex;
+    justify-content: center;
+    font-family: 'Noto Sans Thai', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    line-height: normal;
+    border-radius: 10px;
+    background: #00AB30;
+    color:#FFF;
+    width: 124px;
+    border: none; /* ไม่ต้องมีเส้นขอบ */
+    cursor: pointer;
+}
+
+.summit_c a{
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    background: #D20000;
+    color:#FFF;
+    width: 124px;
+    font-family: 'Noto Sans Thai', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-decoration:none;
+
+}

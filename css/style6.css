@@ -1,0 +1,175 @@
+.alldd{
+    display: flex;
+    justify-content: center;
+}
+
+body{
+    background: #EAE9E9;
+}
+
+
+
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 82px;
+    padding-left: 59px;
+    padding-right: 59px;
+    padding-bottom: 82px;
+    background: linear-gradient(to bottom right, #DAE1E8, #CFD6DE);
+}
+
+.bgwhite{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    width: 1000px;
+    height: 105vh;
+    border-radius: 20px;
+    background: #FFF;
+    padding-left: 59px;
+    padding-right: 59px;
+
+}
+
+.textbgwhite{
+    display: flex;
+    justify-content: center;
+    margin-top: 80px;
+    color: #000;
+    font-family: 'Noto Sans Thai', sans-serif;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin: 0px;
+}
+
+.textbgwhite p{
+    display: flex;
+}
+
+
+
+.boxconicon{
+    width: 1200px;
+    height: 600px;
+    display: flex;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: auto  auto;
+    gap: 10px;
+   /* background-color: #abafb1; /*  แถบพื้นหลัง คอนเทนเนอ room   */
+}
+
+.photoicon{
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;        
+}
+
+.photoicon{
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;        
+}
+
+
+.photoicon img{
+    width: 80px;
+    height: 80px;
+    margin: 0;
+    display: inline;
+}
+
+
+.photoiconend{
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;       
+}
+
+
+.photoiconend img{
+    width: 80px;
+    height: 80px;
+    margin: 0;
+    display: inline;
+}
+
+
+.texticon p{
+    display: flex;
+    width: 190px;
+    margin-left: 30px;
+    justify-content:baseline;
+    align-items: center;
+    font-family: 'Noto Sans Thai', sans-serif;
+}
+
+
+.dicon{
+    display: inline;
+    margin-right: 360px;
+}
+
+.dmap{
+    display:block; 
+    height: 462px; 
+}
+
+.textmap{
+    display: flex;
+    justify-content: center;
+    width: 791px;
+    height: 35px;
+    margin-top: 30px;
+    font-family: 'Noto Sans Thai', sans-serif;
+
+
+}
+
+.dmap img{
+    width: 780px;
+    height: 462px;
+    margin: 0px;
+    display: block;
+}
+
+.centericon{
+    display:flex;
+    align-items: center;
+    margin-left: 20px;
+    height: 462px;
+    margin-top: -120px;
+}
+
+
+.boxconicon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.centerallcontact{
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+
+.centercontact{
+    display: block;
+}
+
+.allcentercon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

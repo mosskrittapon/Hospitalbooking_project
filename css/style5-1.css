@@ -1,0 +1,129 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid black;
+}
+
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.pagination a {
+    margin: 0 5px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    color: #333;
+}
+
+.pagination-bottom {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 20px; /* เพิ่มค่า margin-bottom เพื่อให้ปุ่มอยู่ด้านล่าง */
+}
+
+.tablehos{
+    display: block;
+    margin-bottom: 10px;
+}
+
+.tablebt{
+    display: block;
+
+}
+
+.pagination-bottom {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.pagination-bottom a {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    margin-right: 5px;
+    text-decoration: none;
+    color: #333;
+}
+
+.pagination-bottom a:hover {
+    background-color: #f2f2f2;
+}
+
+.pagination-bottom {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.pagination-bottom a, .current-page {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    margin-right: 5px;
+    text-decoration: none;
+    color: #333;
+}
+
+.pagination-bottom a:hover {
+    background-color: #f2f2f2;
+}
+
+
+
+.formsearch {
+    text-align: center;
+    font-family: 'Noto Sans Thai', sans-serif;
+    font-size: 18px;
+
+}
+
+.formsearch form input2 {
+    text-align: center;
+    font-family: 'Noto Sans Thai', sans-serif;
+    font-size: 18px;
+
+}
+
+
+.dbsearch{
+    margin-top: 50px;
+    text-align: center;
+    
+}
+
+
+.dbsearch th {
+    margin-top: 30px;
+    text-align: center;
+    background-color: #4a6ce6;
+    color: #ffffff;
+    font-family: 'Noto Sans Thai', sans-serif;
+
+}
+
+
+.dbsearch td {
+    margin-top: 30px;
+    text-align: center;
+    background-color: #c9d3f9;
+    color: #000000;
+    font-family: 'Noto Sans Thai', sans-serif;
+}
+
+

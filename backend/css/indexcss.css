@@ -1,0 +1,135 @@
+.container{
+    margin-right: 0.25rem;
+    margin-top: 5rem;
+}
+
+.ct2{
+    padding-left: 250px;
+    margin-right: 0.75rem;
+    margin-top: 5rem;
+
+}
+
+div.container div.row h1 {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.styled-table {
+    border-collapse: collapse;
+    margin: 10px 150px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+    background-color: #000000;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #000000;
+}
+
+.box1 {
+    background-color: #9d9d9d;
+    width: 305px;
+    height: 240px;
+    margin: 50px;
+    margin-left: 200px;
+    box-shadow: 0px 5px 10px #888888;
+}
+
+.box2 {
+    background-color: #D9D9D9;
+    width: 305px;
+    height: 210px;
+    margin-left: -12px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+}
+
+.box3 {
+    background-color: #9d9d9d;
+    width: 305px;
+    height: 240px;
+    margin: 50px;
+    box-shadow: 0px 5px 10px #888888;
+}
+
+.box4 {
+    background-color: #D9D9D9;
+    width: 305px;
+    height: 210px;
+    margin-left: -12px;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+}
+
+
+div.textbox1 {
+    padding-right: 45px;
+}
+
+div.textbox2 {
+    padding-right: 15px;
+}
+
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    padding: 58px 0 0;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 5%), 0 2px 10px 0 rgb(0 0 0 / 5%);
+    width: 210px;
+}
+
+.sidebar .ad-name h1 {
+    font-size: 20px;
+    text-align: center;
+}
+
+.sidebar .nav-link {
+    font-weight: 500;
+    color: var(--bs-dark);
+}
+
+.sidebar .nav-link:hover {
+    background: var(--bs-light);
+    color: var(--bs-primary);
+}
+
+nav.sidebar hr {
+    height: 2px;
+    border-width: 0;
+    color: gray;
+    background-color: gray;
+}
+
+.small-table {
+    font-size: 15px;
+    width: 95%;
+    margin: auto;
+}
