@@ -1,16 +1,7 @@
 <?php
-// เชื่อมต่อกับฐานข้อมูล MySQL
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "hospital";
 
-$conn = new mysqli($servername, $username, $password, $dbname);
+require_once('dbcon.php');
 
-// ตรวจสอบการเชื่อมต่อ
-if ($conn->connect_error) {
-    die("การเชื่อมต่อล้มเหลว: " . $conn->connect_error);
-}
 
 // ตรวจสอบว่ามีการส่งข้อมูลโดยใช้ POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -28,10 +19,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: main.php"); // เปลี่ยนทิศทางไปยัง confirm.php
         exit(); 
     } else {
-        echo "เกิดข้อผิดพลาดในการบันทึกข้อมูล: " . $conn->error;
+        echo "เกิดข้อผิดพลาดในการบันทึกข้อมูล: ";
     }
 }
-
-// ปิดการเชื่อมต่อกับฐานข้อมูล
-$conn->close();
-?>

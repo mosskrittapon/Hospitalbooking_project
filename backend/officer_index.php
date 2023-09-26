@@ -46,7 +46,7 @@ if (!isset($_SESSION['officer_login'])) {
             <h1> ยินดีต้อนรับ </h1>
             <div class="box1">
                 <div class="box2">
-                    <img src="/thesis2/images/bed.png" width="140" height="140">
+                    <img src="/thesisfull/backend/images/bed.png" width="140" height="140">
                     <div class="textbox2">
                         <h2> <?php echo $totalRoom; ?> </h2>
                         <a> จำนวนห้องว่าง </a>
@@ -55,7 +55,7 @@ if (!isset($_SESSION['officer_login'])) {
             </div>
             <div class="box3">
                 <div class="box4">
-                    <img src="/thesis2/images/booking.png" width="130" height="130">
+                    <img src="/thesisfull/backend/images/booking.png" width="130" height="130">
                     <div class="textbox1">
                         <h2> <?php echo $totalApporve; ?> </h2>
                         <a> รออนุมัติ </a>
@@ -74,6 +74,9 @@ if (!isset($_SESSION['officer_login'])) {
                 <hr>
                 <li class="nav-item">
                     <a class="nav-link" href="officer_index.php"> หน้าหลัก </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="officer_department.php"> แผนกผู้ป่วย </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="officer_room.php"> ประเภทห้องพัก </a>

@@ -76,6 +76,9 @@ if (!isset($_SESSION['officer_login'])) {
                     <a class="nav-link" href="officer_index.php"> หน้าหลัก </a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="officer_department.php"> แผนกผู้ป่วย </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="officer_room.php"> ประเภทห้องพัก </a>
                 </li>
                 <li class="nav-item">

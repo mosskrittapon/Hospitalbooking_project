@@ -1,18 +1,17 @@
 <?php
-
 session_start();
 
 require_once('db.php');
 
 if (isset($_GET['delete'])) {
     $delete_id = $_GET['delete'];
-    $deletestmt = $conn->query("DELETE FROM room_num WHERE rn_id = $delete_id");
+    $deletestmt = $conn->query("DELETE FROM department WHERE d_id = $delete_id");
     $deletestmt->execute();
 
     if ($deletestmt) {
         echo "<script>alert('Data has been deleted successfully');</script>";
         $_SESSION['success'] = "Data has been deleted succesfully";
-        header("refresh:1; url=officer_nroom.php");
+        header("refresh:1; url=officer_department.php");
     }
 }
 
@@ -24,7 +23,7 @@ if (isset($_GET['delete'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>จำนวนห้องพัก</title>
+    <title>แผนกผู้ป่วย</title>
 
     <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -45,44 +44,15 @@ if (isset($_GET['delete'])) {
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">เพิ่มห้องพัก</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">เพิ่มแผนกผู้ป่วย</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="nroom_insert.php" method="post" enctype="multipart/form-data">
+                    <form action="department_insert.php" method="post" enctype="multipart/form-data">
                         <div class="mb-3">
-                            <label for="name" class="col-form-label">หมายเลขห้องพัก:</label>
-                            <input type="text" required class="form-control" name="name">
+                            <label for="dname" class="col-form-label">ชื่อแผนกผู้ป่วย:</label>
+                            <input type="text" required class="form-control" name="dname">
                         </div>
-                        <div class="form-group">
-                            <label for="rtid" class="col-form-label">ประเภทห้องพัก:</label>
-                            <div class="mb-3">
-                                <select name="rtid" class="form-select">
-                                    <option value="" selected="selected"> โปรดเลือก...</option>
-                                    <?php
-                                    $type = $conn->query("SELECT * FROM room_type");
-                                    while ($type_data = $type->fetch(PDO::FETCH_ASSOC)) {
-                                        $type_name[$type_data['rt_id']] = $type_data['rt_type'];
-                                    ?>
-                                        <option value="<?php echo $type_data['rt_id'] ?>"><?php echo $type_data['rt_type'] ?></option>
-                                    <?php
-                                    }
-                                    ?>
-
-                                </select>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="rnstatus" class="col-form-label">สถานะห้องพัก:</label>
-                            <div class="mb-3">
-                                <select name="rnstatus" class="form-select">
-                                    <option value="" selected="selected"> โปรดเลือก...</option>
-                                    <option value="ห้องว่าง"> ห้องว่าง </option>
-                                    <option value="ห้องไม่ว่าง"> ห้องไม่ว่าง </option>
-                                </select>
-                            </div>
-                        </div>
-
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                             <button type="submit" name="submit" class="btn btn-success">Submit</button>
@@ -93,7 +63,6 @@ if (isset($_GET['delete'])) {
             </div>
         </div>
     </div>
-
 
     <nav class="sidebar">
         <ul class="nav flex-column">
@@ -123,14 +92,13 @@ if (isset($_GET['delete'])) {
         </ul>
     </nav>
 
-
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <h3>จัดการจำนวนห้องพัก</h3>
+                <h3>จัดการแผนกผู้ป่วย</h3>
             </div>
             <div class="col-md-6 d-flex justify-content-end">
-                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#userModal" data-bs-whatever="@mdo">เพิ่มห้องพัก</button>
+                <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#userModal" data-bs-whatever="@mdo">เพิ่มแผนกผู้ป่วย</button>
             </div>
         </div>
         <hr>
@@ -151,40 +119,34 @@ if (isset($_GET['delete'])) {
             </div>
         <?php } ?>
 
-        <table class="table table-bordered ">
+        <table class="table table-bordered small-table2">
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">ประเภทของห้องพัก</th>
-                    <th scope="col">หมายเลขห้องพัก</th>
-                    <th scope="col">สถานะ</th>
+                    <th scope="col">ชื่อแผนก</th>
                     <th scope="col">จัดการ</th>
                 </tr>
             </thead>
+
             <tbody>
                 <?php
-                $stmt = $conn->query("SELECT room_num.*, room_type.rt_type, room_type.rt_type
-                    FROM room_num 
-                    LEFT JOIN room_type ON room_num.rt_id = room_type.rt_id");
-
+                $stmt = $conn->query("SELECT * FROM department");
                 $stmt->execute();
-                $room_num = $stmt->fetchAll();
+                $department = $stmt->fetchAll();
 
-                if (!$room_num) {
+                if (!$department) {
                     echo "<p><td colspan='6' class='text-center'>No data available</td></p>";
                 } else {
                     $i = 1;
-                    foreach ($room_num as $room_n) {
+                    foreach ($department as $dp) {
                 ?>
                         <tr>
                             <td> <?php echo $i; ?> </td>
-                            <td><?php echo $room_n['rt_type']; ?></td>
-                            <td><?php echo $room_n['rn_name']; ?></td>
-                            <td><?php echo $room_n['rn_status']; ?></td>
+                            <td><?php echo $dp['d_name']; ?></td>
+
                             <td>
-                                <a href="nroom_edit.php?rn_id=<?php echo $room_n['rn_id']; ?>" class="btn btn-warning">เเก้ไขข้อมูล</a>
-                                <a onclick="return confirm('Are you sure you want to delete?');" href="?delete=<?php echo $room_n['rn_id']; ?>" class="btn btn-danger">ลบข้อมูล</a>
-                            </td>
+                                <a href="department_edit.php?d_id=<?php echo $dp['d_id']; ?>" class="btn btn-warning">แก้ไขข้อมูล</a>
+                                <a onclick="return confirm('Are you sure you want to delete?');" href="?delete=<?php echo $dp['d_id']; ?>" class="btn btn-danger">ลบข้อมูล</a>
                         </tr>
                 <?php
                         $i++;

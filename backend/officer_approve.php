@@ -69,7 +69,10 @@ if (isset($_GET['delete'])) {
             </div>
             <hr>
             <li class="nav-item">
-                <a class="nav-link" href="officer_index.php"> หน้าหลัก</a>
+                <a class="nav-link" href="officer_index.php"> หน้าหลัก </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="officer_department.php"> แผนกผู้ป่วย </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="officer_room.php"> ประเภทห้องพัก </a>
@@ -92,7 +95,7 @@ if (isset($_GET['delete'])) {
                 <h3>อนุมัติการจอง</h3>
                 <hr style="width:204%; margin-left:0">
             </div>
-            
+
             <?php if (isset($_SESSION['success'])) { ?>
                 <div class="alert alert-success">
                     <?php

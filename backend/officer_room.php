@@ -83,7 +83,10 @@ if (isset($_GET['delete'])) {
             </div>
             <hr>
             <li class="nav-item">
-                <a class="nav-link" href="officer_index.php"> หน้าหลัก</a>
+                <a class="nav-link" href="officer_index.php"> หน้าหลัก </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="officer_department.php"> แผนกผู้ป่วย </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="officer_room.php"> ประเภทห้องพัก </a>
@@ -152,7 +155,7 @@ if (isset($_GET['delete'])) {
 
                 ?>
                         <tr>
-                            <td> <?php echo $i;?> </td>
+                            <td> <?php echo $i; ?> </td>
                             <td><?php echo $roomt['rt_type']; ?></td>
                             <td><?php echo $roomt['rt_price']; ?></td>
                             <td width="225px"><img class="rounded" width="100%" src="uploads/<?php echo $roomt['rt_img']; ?>" alt=""></td>
