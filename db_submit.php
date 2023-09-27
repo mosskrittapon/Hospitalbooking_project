@@ -1,17 +1,5 @@
 <?php
-// เชื่อมต่อกับฐานข้อมูล MySQL
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "hospital";
-
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// ตรวจสอบการเชื่อมต่อ
-if ($conn->connect_error) {
-    die("การเชื่อมต่อฐานข้อมูลล้มเหล่า: " . $conn->connect_error);
-}
-
+require_once('dbcon.php');
 
 // กำหนดโซนเวลาเป็น "Asia/Bangkok" (เวลาในเมืองไทย)
 date_default_timezone_set('Asia/Bangkok');

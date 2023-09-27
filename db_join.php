@@ -1,16 +1,6 @@
 <?php
-// เชื่อมต่อกับฐานข้อมูล MySQL
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "hospital";
+require_once('dbcon.php');
 
-$conn = new mysqli($servername, $username, $password, $dbname);
-
-// ตรวจสอบการเชื่อมต่อ
-if ($conn->connect_error) {
-    die("การเชื่อมต่อล้มเหลว: " . $conn->connect_error);
-}
 
 // ตรวจสอบว่ามีการส่งข้อมูลโดยใช้ POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

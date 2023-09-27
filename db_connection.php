@@ -1,71 +1,16 @@
 <?php
-    // สร้างการเชื่อมต่อกับฐานข้อมูล
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "hospital";
 
-    // สร้างการเชื่อมต่อ
-    $conn = new mysqli($servername, $username, $password, $dbname);
-
-    // ตรวจสอบการเชื่อมต่อ
-    if ($conn->connect_error) {
-        die("การเชื่อมต่อล้มเหลว: " . $conn->connect_error);
-    }
+require_once('dbcon.php');
 
 
-    $sql = "SELECT COUNT(*) as room1 FROM book WHERE room = 'ห้องพักแบบประหยัด'";
-    $result = $conn->query($sql);
+$query = "SELECT room_type.rt_id, room_type.rt_type, room_type.rt_price, room_type.rt_img,
+COUNT(CASE WHEN room_num.rn_status = 'ห้องว่าง' THEN 1 ELSE NULL END) AS empty_rooms
+FROM room_type
+LEFT JOIN room_num ON room_type.rt_id = room_num.rt_id
+GROUP BY room_type.rt_id, room_type.rt_type, room_type.rt_price, room_type.rt_img";
 
+$result = mysqli_query($conn, $query);
 
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        $room1Count = $row['room1'];
-        
-        // คำนวณความต่าง
-        $difference = 5 - $room1Count;
-    }    
-
-    $total_rows_2 = 5;
-    $sql = "SELECT COUNT(*) as room2 FROM book WHERE room = 'ห้องพักแบบพิเศษ 1'";
-    $result = $conn->query($sql);
-    $difference_2 =  5 - $total_rows_2;
-
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        $room2Count = $row['room2'];
-        
-        // คำนวณความต่าง
-        $difference_2 = 5 - $room2Count;
-        
-
-    }    
-
-    $total_rows_3 = 5;
-    $sql = "SELECT COUNT(*) as room3 FROM book WHERE room = 'ห้องพักแบบพิเศษ 2'";
-    $result = $conn->query($sql);
-    $difference_3 =  5 - $total_rows_3;
-
-    if ($result->num_rows > 0) {
-        $row = $result->fetch_assoc();
-        $room3Count = $row['room3'];
-        
-        // คำนวณความต่าง
-        $difference_3 = 5 - $room3Count;
-        
-
-    }    
-
-
-
-
-
-
-
-
-
-
-
-
-
-?>
+if (!$result) {
+    die("การสอบถามผิดพลาด: " . mysqli_error($conn));
+}

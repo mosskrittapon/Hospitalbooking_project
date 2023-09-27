@@ -1,5 +1,8 @@
 <?php
-require_once 'db_connection.php';
+
+require_once('dbcon.php');
+
+require_once('db_connection.php');
 ?>
 
 <!DOCTYPE html>
@@ -65,181 +68,62 @@ require_once 'db_connection.php';
                     <div class="centerboooking">
 
 
-
-
-
                         <div class="textbgwhite">
 
                             <p>กรุณาเลือกห้องพักที่เปิดให้บริการ</p>
 
                         </div>
 
+                        <?php
 
-
-
-
-                        <div class="room-content rmone show">
-
-
-                            <div class="ptroom">
-                                <div class="roomone">
-                                    <img src="./css/UI/room/1.jpg">
-                                    <p>ห้องพักแบบประหยัด</p>
-                                </div>
-                            </div>
-
-
-                            <div class="dataroom">
-                                <div class="dataone">
-
-                                    <div class="boxdataall">
-
-                                        <div class="boxdata">
-                                            <p>จำนวนห้องว่าง : <?php echo $difference; ?> </p>
-                                        </div>
-
-                                        <div class="boxdatasmall">
-                                            <p>ราคา 300 / คืน</p>
-                                        </div>
-
-
-                                        <?php if ($difference > 0) { ?>
-                                            <a href="summit_1.php?room=ห้องพักแบบประหยัด" class="boxdatablacksmall">
-                                                <p>ทำการจองห้องพัก</p>
-                                            </a>
-                                        <?php } else { ?>
-                                            <div class="boxdatablacksmall" style="display: none;">
-                                                <p>ทำการจองห้องพัก</p>
-                                            </div>
-                                        <?php } ?>
-
-                                        <?php if ($difference <= 0) { ?>
-                                            <div class="boxdatablacksmallsos">
-                                                <p>ห้องพักเต็ม</p>
-                                            </div>
-                                        <?php } ?>
-
-
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $rt_id = $row['rt_id'];
+                            $rt_type = $row['rt_type'];
+                            $rt_price = $row['rt_price'];
+                            $rt_img = $row['rt_img'];
+                            $empty_rooms = $row['empty_rooms'];
+                        ?>
+                            <div class="room-content rm show">
+                                <div class="ptroom">
+                                    <div class="roomone">
+                                        <img src="backend/uploads/<?php echo $rt_img; ?>">
+                                        <p><?= $rt_type; ?></p>
                                     </div>
-
                                 </div>
-                            </div>
 
-
-
-                        </div>
-
-
-
-
-                        <div class="room-content rmtwo">
-
-
-                            <div class="ptroom">
-                                <div class="roomone">
-                                    <img src="./css/UI/room/2.jpg">
-                                    <p>ห้องพักแบบพิเศษ 1 </p>
-                                </div>
-                            </div>
-
-
-                            <div class="dataroom">
-                                <div class="dataone">
-
-                                    <div class="boxdataall">
-
-                                        <div class="boxdata">
-                                            <p>จำนวนห้องว่าง : <?php echo $difference_2; ?> </p>
-                                        </div>
-
-                                        <div class="boxdatasmall">
-                                            <p>ราคา 500 / คืน</p>
-                                        </div>
-
-                                        <?php if ($difference_2 > 0) { ?>
-                                            <a href="summit_1.php?room=ห้องพักแบบพิเศษ 1" class="boxdatablacksmall">
-                                                <p>ทำการจองห้องพัก</p>
-                                            </a>
-                                        <?php } else { ?>
-                                            <div class="boxdatablacksmall" style="display: none;">
-                                                <p>ทำการจองห้องพัก</p>
+                                <div class="dataroom">
+                                    <div class="dataone">
+                                        <div class="boxdataall">
+                                            <div class="boxdata">
+                                                <p>จำนวนห้องว่าง : <?= $empty_rooms; ?> </p>
                                             </div>
-                                        <?php } ?>
 
-                                        <?php if ($difference_2 <= 0) { ?>
-                                            <div class="boxdatablacksmallsos">
-                                                <p>ห้องพักเต็ม</p>
+                                            <div class="boxdatasmall">
+                                                <p>ราคา <?= $rt_price; ?> / คืน</p>
                                             </div>
-                                        <?php } ?>
 
+                                            <?php if ($empty_rooms > 0) { ?>
+                                                <a href="summit_1.php?room=<?= $rt_type; ?>" class="boxdatablacksmall">
+                                                    <p>ทำการจองห้องพัก</p>
+                                                </a>
+                                            <?php } else { ?>
+                                                <div class="boxdatablacksmall" style="display: none;">
+                                                    <p>ทำการจองห้องพัก</p>
+                                                </div>
+                                            <?php } ?>
 
-
+                                            <?php if ($empty_rooms <= 0) { ?>
+                                                <div class="boxdatablacksmallsos">
+                                                    <p>ห้องพักเต็ม</p>
+                                                </div>
+                                            <?php } ?>
+                                        </div>
                                     </div>
-
                                 </div>
                             </div>
-
-
-
-                        </div>
-
-
-
-
-
-
-
-                        <div class="room-content rmthree">
-
-
-                            <div class="ptroom">
-                                <div class="roomone">
-                                    <img src="./css/UI/room/3.jpg">
-                                    <p>ห้องพักแบบพิเศษ 2 </p>
-                                </div>
-                            </div>
-
-
-                            <div class="dataroom">
-                                <div class="dataone">
-
-                                    <div class="boxdataall">
-
-                                        <div class="boxdata">
-                                            <p>จำนวนห้องว่าง : <?php echo $difference_3; ?> </p>
-                                        </div>
-
-                                        <div class="boxdatasmall">
-                                            <p>ราคา 600 / คืน</p>
-                                        </div>
-
-                                        <?php if ($difference_3 > 0) { ?>
-                                            <a href="summit_1.php?room=ห้องพักแบบพิเศษ 1" class="boxdatablacksmall">
-                                                <p>ทำการจองห้องพัก</p>
-                                            </a>
-                                        <?php } else { ?>
-                                            <div class="boxdatablacksmall" style="display: none;">
-                                                <p>ทำการจองห้องพัก</p>
-                                            </div>
-                                        <?php } ?>
-
-                                        <?php if ($difference_3 <= 0) { ?>
-                                            <div class="boxdatablacksmallsos">
-                                                <p>ห้องพักเต็ม</p>
-                                            </div>
-                                        <?php } ?>
-
-
-                                    </div>
-
-                                </div>
-                            </div>
-
-
-
-                        </div>
-
-
+                        <?php
+                        }
+                        ?>
 
 
 
