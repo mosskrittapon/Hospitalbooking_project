@@ -59,6 +59,10 @@ if (isset($_POST['update'])) {
             ?>
             <input type="hidden" readonly value="<?php echo $data['rn_id']; ?>" required class="form-control" name="rnid">
             <div class="mb-3">
+                <label for="name" class="col-form-label">หมายเลขห้องพัก:</label>
+                <input type="text" value="<?php echo $data['rn_name']; ?>" required class="form-control" name="name">
+            </div>
+            <div class="mb-3">
                 <label for="rtid" class="col-form-label">ประเภทห้องพัก:</label>
                 <select name="rtid" class="form-select">
                     <?php
@@ -71,10 +75,6 @@ if (isset($_POST['update'])) {
                     }
                     ?>
                 </select>
-            </div>
-            <div class="mb-3">
-                <label for="name" class="col-form-label">หมายเลขห้องพัก:</label>
-                <input type="text" value="<?php echo $data['rn_name']; ?>" required class="form-control" name="name">
             </div>
             <div class="mb-3">
                 <label for="rnstatus" class="col-form-label">สถานะห้องพัก:</label>

@@ -1,0 +1,15 @@
+.pass-cus{
+    display: flex;
+}
+
+div.extra {
+    font-size: 14px;
+    display: flex;
+    margin-top: 5px;
+    flex-direction: row-reverse;
+}
+
+div.extra a {
+    color: gray;
+    text-decoration: none;
+}

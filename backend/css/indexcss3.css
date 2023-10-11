@@ -1,16 +1,15 @@
 body{
     font-family: 'Noto Sans Thai', sans-serif;
-    
 }
 
 .container{
     margin-right: 0.25rem;
     margin-top: 5rem;
-
 }
 
 .ct2{
-    padding-left: 210px;
+    padding-left: 250px;
+    margin-right: 0.75rem;
     margin-top: 5rem;
     padding-bottom: 30px;
 }
@@ -18,16 +17,41 @@ body{
 div.container div.row h1 {
     margin-top: 15px;
     text-align: center;
-    
 }
 
-.row{
-    padding-left: 30px;
-    padding-right: 30px;
-    display: flex;
-    justify-content: center;
+.styled-table {
+    border-collapse: collapse;
+    margin: 10px 150px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
+.styled-table thead tr {
+    background-color: #000000;
+    color: #ffffff;
+    text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px 15px;
+}
+
+
+
+.styled-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+    border-bottom: 2px solid #000000;
+}
 
 .box1 {
     background-color: #9d9d9d;
@@ -91,8 +115,8 @@ div.textbox2 {
 
 
 .endout{
-    /*display: flex;
-    height: 40px;*/
+    display: flex;
+    height: 40px;
     width: 210px;
 }
 
@@ -100,12 +124,6 @@ div.textbox2 {
     display:flex;
     align-items: end;
     height: 50vh;
-}
-
-.boxout2{
-    display:flex;
-    align-items: end;
-    height: 66vh;
 }
 
 .endout .nav-link{
@@ -136,104 +154,6 @@ nav.sidebar hr {
 
 .small-table {
     font-size: 15px;
-    width: 100%;
-    margin: auto;
-
-}
-
-
-
-
-
-
-.pass-cus{
-    display: flex;
-}
-
-.small-table3 {
-    font-size: 15px;
-    width: 80%;
+    width: 95%;
     margin: auto;
 }
-
-.small-table4 {
-    font-size: 15px;
-    width: 60%;
-    margin: auto;
-    float: right;
-    max-width: 340px;
-}
-
-
-.search-text {
-    width: auto;
-    justify-content: center;
-
-}
-
-
-
-.texthh{
-    width: 100%;
-    padding: 0px;
-    display: flex;
-    justify-content: center;
-
-    display: block;
-}
-
-
-
-.text-end{
-    display: flex;
-    width: 310px;
-    display: flex;
-    justify-content: end;
-}
-
-div.textsearch{
-    margin-top: 50px;
-    padding-right: 30px;
-    display: flex;
-    justify-content: end;
-}
-
-
-
-
-div.col-md-6.search-text{
-    padding: 0px;
-}
-
-.textsearch{
-    padding-right: 126px;
-}
-
-
-.hrr{
-    padding: 0px;
-}
-
-
-div.col-md-6{
-    padding: 0px;
-    
-}
-
-.search-container{
-    width: 340px;
-
-}
-
-
-div.d{
-    width: auto;
-    height: auto;
-}
-
-div.d{
-    width: auto;
-    height: auto;
-}
-
-

@@ -13,10 +13,10 @@ if (isset($_POST['submit'])) {
     $sql->execute();
 
     if ($sql) {
-        $_SESSION['success'] = "Data has been inserted successfully";
+        $_SESSION['success'] = "ข้อมูลถูกเพิ่มเรียบร้อยเเล้ว";
         header("location: officer_department.php");
     } else {
-        $_SESSION['error'] = "Data has not been inserted successfully";
+        $_SESSION['error'] = "การเพิ่มข้อมูลไม่สำเร็จ";
         header("location: officer_department.php");
     }
 }

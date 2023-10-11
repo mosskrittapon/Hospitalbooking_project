@@ -85,6 +85,22 @@ require_once('db_register.php');
                                 <label for="S_name">ชื่อ-นามสกุล :</label>
                                 <input type="text" id="S_name" name="S_name" placeholder="กรุณาใส่ชื่อ-นามสกุล"><br><br>
                             </div>
+                            <div class="label_form3">
+                                <label for="Department">แผนก :</label>
+                                <select id="Department" name="Department">
+                                    <option value="" disabled selected>กรุณาเลือกแผนก</option>
+                                    <?php
+                                    $dp = $conn->query("SELECT * FROM department");
+                                    while ($dp_data = $dp->fetch_assoc()) {
+                                        $dp_name[$dp_data['d_id']] = $dp_data['d_name'];
+                                    ?>
+                                        <option value="<?php echo $dp_data['d_name'] ?>"><?php echo $dp_data['d_name'] ?></option>
+                                    <?php
+                                    }
+                                    ?>
+                                    
+                                </select><br><br>
+                            </div>
 
                             <div class="label_form">
                                 <label for="P_number">เบอร์โทรศัพท์ :</label>

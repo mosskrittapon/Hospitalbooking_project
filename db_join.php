@@ -7,7 +7,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $HN = $_POST['HN'];
 
     // คำสั่ง SQL สำหรับดึงข้อมูลจากตาราง 'register' เมื่อ HN ตรงกัน
-    $sql = "SELECT ID_number, S_name, Department FROM register WHERE HN = '$HN'";
+    $sql = "SELECT ID_number, S_name FROM register WHERE HN = '$HN'";
 
     $result = $conn->query($sql);
 
@@ -17,7 +17,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             'found' => true,
             'ID_number' => $row['ID_number'],
             'S_name' => $row['S_name'],
-            'Department' => $row['Department']
         ];
         echo json_encode($data);
     } else {

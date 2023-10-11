@@ -1,6 +1,7 @@
 body{
     font-family: 'Noto Sans Thai', sans-serif;
-    
+    padding-left: 30px;
+    padding-right: 30px;
 }
 
 .container{
@@ -136,7 +137,7 @@ nav.sidebar hr {
 
 .small-table {
     font-size: 15px;
-    width: 100%;
+    width: 95%;
     margin: auto;
 
 }
@@ -187,15 +188,13 @@ nav.sidebar hr {
 .text-end{
     display: flex;
     width: 310px;
-    display: flex;
-    justify-content: end;
+    float: right;
 }
 
 div.textsearch{
     margin-top: 50px;
-    padding-right: 30px;
-    display: flex;
-    justify-content: end;
+
+
 }
 
 

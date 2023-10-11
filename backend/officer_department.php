@@ -9,8 +9,8 @@ if (isset($_GET['delete'])) {
     $deletestmt->execute();
 
     if ($deletestmt) {
-        echo "<script>alert('Data has been deleted successfully');</script>";
-        $_SESSION['success'] = "Data has been deleted succesfully";
+        echo "<script>alert('ข้อมูลถูกลบเรียบร้อยแล้ว');</script>";
+        $_SESSION['success'] = "ข้อมูลถูกลบเรียบร้อยแล้ว";
         header("refresh:1; url=officer_department.php");
     }
 }
@@ -28,6 +28,11 @@ if (isset($_GET['delete'])) {
     <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="css/indexcss.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -54,8 +59,7 @@ if (isset($_GET['delete'])) {
                             <input type="text" required class="form-control" name="dname">
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" name="submit" class="btn btn-success">Submit</button>
+                            <button type="submit" name="submit" class="btn btn-success">เพิ่มข้อมูล</button>
                         </div>
                     </form>
                 </div>
@@ -78,17 +82,24 @@ if (isset($_GET['delete'])) {
                 <a class="nav-link" href="officer_department.php"> แผนกผู้ป่วย </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="officer_room.php"> ประเภทห้องพัก </a>
+                <a class="nav-link" href="officer_room.php"> ห้องพักผู้ป่วย </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="officer_nroom.php"> จำนวนห้องพัก </a>
+                <a class="nav-link" href="officer_approve.php"> ข้อมูลการจอง </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="officer_approve.php"> อนุมัติการจอง </a>
+                <a class="nav-link" href="officer_history.php"> ประวัติการจอง </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="login_page.php"> ออกจากระบบ </a>
-            </li>
+            <div class="boxout">
+                <div class="endout">
+                    <li class="nav-item">
+                        <a class="nav-link" href="officer_profile.php"> เเก้ไขโปรไฟล์ </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login_page.php"> ออกจากระบบ </a>
+                    </li>
+                </div>
+            </div>
         </ul>
     </nav>
 
@@ -97,64 +108,68 @@ if (isset($_GET['delete'])) {
             <div class="col-md-6">
                 <h3>จัดการแผนกผู้ป่วย</h3>
             </div>
+
             <div class="col-md-6 d-flex justify-content-end">
                 <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#userModal" data-bs-whatever="@mdo">เพิ่มแผนกผู้ป่วย</button>
             </div>
+            <div class="hrr">
+                <hr>
+            </div>
+
+
+            <?php if (isset($_SESSION['success'])) { ?>
+                <div class="alert alert-success">
+                    <?php
+                    echo $_SESSION['success'];
+                    unset($_SESSION['success']);
+                    ?>
+                </div>
+            <?php } ?>
+            <?php if (isset($_SESSION['error'])) { ?>
+                <div class="alert alert-danger">
+                    <?php
+                    echo $_SESSION['error'];
+                    unset($_SESSION['error']);
+                    ?>
+                </div>
+            <?php } ?>
+            <table class="table table-bordered small-table3">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">ชื่อแผนก</th>
+                        <th scope="col">จัดการ</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <?php
+                    $stmt = $conn->query("SELECT * FROM department");
+                    $stmt->execute();
+                    $department = $stmt->fetchAll();
+
+                    if (!$department) {
+                        echo "<p><td colspan='3' class='text-center'>No data available</td></p>";
+                    } else {
+                        $i = 1;
+                        foreach ($department as $dp) {
+                    ?>
+                            <tr>
+                                <td> <?php echo $i; ?> </td>
+                                <td><?php echo $dp['d_name']; ?></td>
+
+                                <td>
+                                    <a href="department_edit.php?d_id=<?php echo $dp['d_id']; ?>" class="btn btn-warning">แก้ไขข้อมูล</a>
+                                    <a onclick="return confirm('คุณต้องการจะลบข้อมูลใช่หรือไม่?');" href="?delete=<?php echo $dp['d_id']; ?>" class="btn btn-danger">ลบข้อมูล</a>
+                            </tr>
+                    <?php
+                            $i++;
+                        }
+                    } ?>
+                </tbody>
+
+            </table>
         </div>
-        <hr>
-        <?php if (isset($_SESSION['success'])) { ?>
-            <div class="alert alert-success">
-                <?php
-                echo $_SESSION['success'];
-                unset($_SESSION['success']);
-                ?>
-            </div>
-        <?php } ?>
-        <?php if (isset($_SESSION['error'])) { ?>
-            <div class="alert alert-danger">
-                <?php
-                echo $_SESSION['error'];
-                unset($_SESSION['error']);
-                ?>
-            </div>
-        <?php } ?>
-
-        <table class="table table-bordered small-table2">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">ชื่อแผนก</th>
-                    <th scope="col">จัดการ</th>
-                </tr>
-            </thead>
-
-            <tbody>
-                <?php
-                $stmt = $conn->query("SELECT * FROM department");
-                $stmt->execute();
-                $department = $stmt->fetchAll();
-
-                if (!$department) {
-                    echo "<p><td colspan='6' class='text-center'>No data available</td></p>";
-                } else {
-                    $i = 1;
-                    foreach ($department as $dp) {
-                ?>
-                        <tr>
-                            <td> <?php echo $i; ?> </td>
-                            <td><?php echo $dp['d_name']; ?></td>
-
-                            <td>
-                                <a href="department_edit.php?d_id=<?php echo $dp['d_id']; ?>" class="btn btn-warning">แก้ไขข้อมูล</a>
-                                <a onclick="return confirm('Are you sure you want to delete?');" href="?delete=<?php echo $dp['d_id']; ?>" class="btn btn-danger">ลบข้อมูล</a>
-                        </tr>
-                <?php
-                        $i++;
-                    }
-                } ?>
-            </tbody>
-
-        </table>
     </div>
 
 

@@ -43,18 +43,23 @@ session_start();
 
             <div class="input-field">
                 <i class="fa fa-lock"></i>
-                <input type="password" placeholder="Password" name="password">
+                <input type="password" placeholder="Password" id="password" required class="form-control" name="password">
+                <span class="eye-group" onclick="password_show_hide();">
+                    <e class="fa fa-eye" id="show_eye"></e>
+                    <e class="fa fa-eye-slash d-none" id="hide_eye"></e>
+                </span>
             </div>
+
 
             <button type="submit" name="submit">Sign in </button>
 
             <div class="extra">
-                <a href="/thesisfull/main.php"> กลับสู่หน้าหลักของระบบ</a>
+                <a href="/code/main.php"> กลับสู่หน้าหลักของระบบ</a>
             </div>
 
         </form>
     </div>
-
+    <script src="JS/hidebutton2.js"></script>
 </body>
 
 </html>

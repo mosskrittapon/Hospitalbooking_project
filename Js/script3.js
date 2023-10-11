@@ -44,39 +44,6 @@ function validateAppointmentDate() {
     }
 }
 
-
-
-
-function searchHN() {
-    var HN = document.getElementById("HN").value;
-
-    // ส่งคำสั่งไปยังเซิร์ฟเวอร์เพื่อค้นหาข้อมูล
-    if (HN !== '') {
-        var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                // รับข้อมูล JSON ที่ส่งกลับมาจากเซิร์ฟเวอร์และแสดงผล
-                var data = JSON.parse(xhr.responseText);
-                document.getElementById("ID_number").value = data.ID_number;
-                document.getElementById("S_name").value = data.S_name;
-                document.getElementById("booked_by").value = data.booked_by;
-                document.getElementById("Department").value = data.Department;
-            }
-        };
-        xhr.open("POST", "db_join.php", true);
-        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xhr.send("HN=" + HN);
-    } else {
-        // ล้างข้อมูลในฟอร์มเมื่อไม่มี HN
-        document.getElementById("ID_number").value = '';
-        document.getElementById("S_name").value = '';
-        document.getElementById("booked_by").value = '';
-        document.getElementById("Department").value = '';
-    }
-}
-
-
-
 function searchHN() {
     var HN = document.getElementById("HN").value;
 
@@ -90,12 +57,10 @@ function searchHN() {
                 if (data.found) {
                     document.getElementById("ID_number").value = data.ID_number;
                     document.getElementById("S_name").value = data.S_name;
-                    document.getElementById("Department").value = data.Department;
                 } else {
                     // ไม่พบข้อมูลสำหรับ HN ที่ระบุ
                     document.getElementById("ID_number").value = '';
                     document.getElementById("S_name").value = '';
-                    document.getElementById("Department").value = '';
                 }
             }
         };
@@ -106,7 +71,6 @@ function searchHN() {
         // ล้างข้อมูลในฟอร์มเมื่อไม่มี HN
         document.getElementById("ID_number").value = '';
         document.getElementById("S_name").value = '';
-        document.getElementById("Department").value = '';
     }
 }
 

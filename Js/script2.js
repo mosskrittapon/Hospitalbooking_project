@@ -26,12 +26,7 @@ function validateForm() {
     alert("กรุณากรอกข้อมูลให้ครบทุกช่อง");
     return false; // ยกเลิกการ submit ฟอร์ม
   }
-  
-  alert("ลงทะเบียนสำเร็จ"); // แจ้งเตือนลงทะเบียนสำเร็จ
-  
-  // เปลี่ยนเส้นทางไปยังหน้า main.php
-  window.location.href = "main.php";
-  
+
   return true; // ยอมรับการ submit ฟอร์ม
 }
 

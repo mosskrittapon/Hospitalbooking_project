@@ -51,9 +51,9 @@ div.login-form form div.input-field input {
     padding-right: 15px;
 }
 
-div.login-form form button{
+div.login-form form button {
     width: 100%;
-    background-color:deepskyblue;
+    background-color: deepskyblue;
     padding: 8px;
     border: none;
     font-size: 16px;
@@ -63,23 +63,33 @@ div.login-form form button{
     transition: background-color 0.4s;
 }
 
-div.login-form form button:hover{
+div.login-form form button:hover {
     background-color: rgb(0, 128, 255);
 }
 
-div.login-form form div.extra{
+div.login-form form div.extra {
     font-size: 14px;
     display: flex;
     flex-direction: row;
 }
 
-div.login-form form div.extra a{
+div.login-form form div.extra a {
     color: gray;
     text-decoration: none;
 }
 
 .custom-alert {
-    font-size: 15px; 
-    padding: 8px; 
-  }
+    font-size: 15px;
+    padding: 8px;
+}
 
+.eye-group {
+   display : flex;
+   background-color: #e9ecef;
+   border: 1px solid #ced4da ;
+   border-radius: 2px;
+   width: 15%;
+   align-items: center;
+   justify-content: space-around;
+   
+}

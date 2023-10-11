@@ -359,16 +359,17 @@ body{
     display: none;
     text-align: center;
     justify-content: center;
-    
+    margin-top: 60px;
   }
 
   .room-content.show {
     display: flex;
+
   }
   
 
 .room-selector{
-    margin-top: 120px;
+    margin-top: 100px;
     margin-bottom: 10px;
 }
 

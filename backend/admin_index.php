@@ -15,7 +15,11 @@ if (!isset($_SESSION['admin_login'])) {
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- style link -->
-    <link rel="stylesheet" href="css/indexcss.css">
+    <link rel="stylesheet" href="css/indexcss2.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai&display=swap" rel="stylesheet">
+
     <title>Admin Index</title>
 </head>
 
@@ -41,13 +45,25 @@ if (!isset($_SESSION['admin_login'])) {
         <div class="row">
             <h1> ยินดีต้อนรับ </h1>
             <div class="box1">
+
+
                 <div class="box2">
-                    <img src= "/thesisfull/backend/images/people-fill.svg" width="150" height="200">
+                    <img src="/code/backend/images/bed.png">
                     <div class="textbox2">
-                        <h2> <?php echo $totalMembers; ?> </h2>
-                        <a> จำนวนสมาชิก </a>
+
+
+                        <div class="textr">
+                            <h2> <?php echo $totalMembers; ?> </h2>
+                        </div>
+
+
+                        <div class="texta">
+                            <a> จำนวนเจ้าหน้าที่ </a>
+                        </div>
+
                     </div>
                 </div>
+
 
             </div>
         </div>
@@ -65,11 +81,13 @@ if (!isset($_SESSION['admin_login'])) {
                 <a class="nav-link" href="admin_index.php"> หน้าหลัก </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="admin_member.php"> จัดการสมาชิก </a>
+                <a class="nav-link" href="admin_member.php"> จัดการเจ้าหน้าที่ </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="login_page.php"> ออกจากระบบ </a>
-            </li>
+            <div class="boxout2">
+                <li class="nav-item">
+                    <a class="nav-link" href="login_page.php"> ออกจากระบบ </a>
+                </li>
+            </div>
         </ul>
     </nav>
 </body>

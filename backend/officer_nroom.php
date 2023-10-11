@@ -24,11 +24,18 @@ if (isset($_GET['delete'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>จำนวนห้องพัก</title>
+    <title>สถานะห้องพัก</title>
 
     <!-- CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="css/indexcss.css">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Thai&display=swap" rel="stylesheet">
+
+
 </head>
 
 <body>
@@ -111,15 +118,19 @@ if (isset($_GET['delete'])) {
             <li class="nav-item">
                 <a class="nav-link" href="officer_room.php"> ประเภทห้องพัก </a>
             </li>
+            <!--<li class="nav-item">
+                <a class="nav-link" href="officer_nroom.php"> สถานะห้องพัก </a>
+            </li>-->
             <li class="nav-item">
-                <a class="nav-link" href="officer_nroom.php"> จำนวนห้องพัก </a>
+                <a class="nav-link" href="officer_approve.php"> ข้อมูลการจอง </a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="officer_approve.php"> อนุมัติการจอง </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="login_page.php"> ออกจากระบบ </a>
-            </li>
+            <div class="boxout">
+                <div class="endout">
+                    <li class="nav-item">
+                        <a class="nav-link" href="login_page.php"> ออกจากระบบ </a>
+                    </li>
+                </div>
+            </div>
         </ul>
     </nav>
 
@@ -127,7 +138,7 @@ if (isset($_GET['delete'])) {
     <div class="container">
         <div class="row">
             <div class="col-md-6">
-                <h3>จัดการจำนวนห้องพัก</h3>
+                <h3>จัดการสถานะห้องพัก</h3>
             </div>
             <div class="col-md-6 d-flex justify-content-end">
                 <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#userModal" data-bs-whatever="@mdo">เพิ่มห้องพัก</button>
@@ -155,8 +166,8 @@ if (isset($_GET['delete'])) {
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">ประเภทของห้องพัก</th>
                     <th scope="col">หมายเลขห้องพัก</th>
+                    <th scope="col">ประเภทของห้องพัก</th>
                     <th scope="col">สถานะ</th>
                     <th scope="col">จัดการ</th>
                 </tr>
@@ -178,8 +189,8 @@ if (isset($_GET['delete'])) {
                 ?>
                         <tr>
                             <td> <?php echo $i; ?> </td>
-                            <td><?php echo $room_n['rt_type']; ?></td>
                             <td><?php echo $room_n['rn_name']; ?></td>
+                            <td><?php echo $room_n['rt_type']; ?></td>
                             <td><?php echo $room_n['rn_status']; ?></td>
                             <td>
                                 <a href="nroom_edit.php?rn_id=<?php echo $room_n['rn_id']; ?>" class="btn btn-warning">เเก้ไขข้อมูล</a>

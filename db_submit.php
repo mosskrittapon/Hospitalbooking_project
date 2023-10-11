@@ -26,8 +26,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // รับค่า HN จากฟอร์ม
         $hn = $_POST['HN'];
 
-
-
         // คำสั่ง SQL เพื่อตรวจสอบการจอง
         $sql = "SELECT * FROM book WHERE HN = '$hn'";
 
@@ -37,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // ถ้ามีการจองห้องพักอยู่แล้ว
             $message = "HN $hn ได้ทำการจองห้องพักอยู่แล้ว กรุณายกเลิกแล้วทำการจองใหม่อีกครั้ง";
             echo "<script>alert('".$message."')</script>";
-            echo "<script>window.location.href='summit_1.php'</script>";
+            echo "<script>history.back();</script>";
         } else {
 
 
@@ -46,8 +44,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 VALUES ('$current_datetime', '$appointment_date', '$HN', '$ID_number', '$S_name', '$booked_by', '$Department', '$P_number', '$Email', '$room', '$status')";
 
         if ($conn->query($sql) === TRUE) {
-            $messagetrue = "ลงทะเบียนสำเร็จ";
-            echo "<script>alert('".$messagetrue."')</script>";
             header("Location: confirm.php"); // เปลี่ยนทิศทางไปยัง confirm.php
             exit(); 
         } else {

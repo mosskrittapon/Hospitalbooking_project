@@ -76,14 +76,20 @@ require_once('db_connection.php');
 
                         <?php
 
+                        $firstRoom = true; // ใช้ตัวแปรเพื่อตรวจสอบห้องแรก
                         while ($row = mysqli_fetch_assoc($result)) {
                             $rt_id = $row['rt_id'];
                             $rt_type = $row['rt_type'];
                             $rt_price = $row['rt_price'];
                             $rt_img = $row['rt_img'];
-                            $empty_rooms = $row['empty_rooms'];
+                            $rt_num = $row['rt_num'];
+                            $empty_rooms = $row['rt_num'];
+
+                            $roomClass = $firstRoom ? 'show' : ''; // ให้กำหนดคลาส 'show' เฉพาะห้องแรก
+                            $firstRoom = false; // เปลี่ยนค่าเป็น false หลังจากกำหนดคลาสแล้ว
                         ?>
-                            <div class="room-content rm show">
+
+                            <div class="room-content rm <?= $roomClass; ?>">
                                 <div class="ptroom">
                                     <div class="roomone">
                                         <img src="backend/uploads/<?php echo $rt_img; ?>">
@@ -94,9 +100,13 @@ require_once('db_connection.php');
                                 <div class="dataroom">
                                     <div class="dataone">
                                         <div class="boxdataall">
+
                                             <div class="boxdata">
-                                                <p>จำนวนห้องว่าง : <?= $empty_rooms; ?> </p>
+                                                    <p>จำนวนห้องว่าง : <?= $rt_num; ?> </p>
                                             </div>
+
+
+
 
                                             <div class="boxdatasmall">
                                                 <p>ราคา <?= $rt_price; ?> / คืน</p>
@@ -112,15 +122,20 @@ require_once('db_connection.php');
                                                 </div>
                                             <?php } ?>
 
+
                                             <?php if ($empty_rooms <= 0) { ?>
                                                 <div class="boxdatablacksmallsos">
                                                     <p>ห้องพักเต็ม</p>
                                                 </div>
                                             <?php } ?>
+
+
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
+
                         <?php
                         }
                         ?>
